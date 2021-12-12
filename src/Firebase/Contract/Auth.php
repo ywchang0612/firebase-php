@@ -37,7 +37,7 @@ use Traversable;
 interface Auth
 {
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      *
      * @throws UserNotFound
      * @throws Exception\AuthException
@@ -46,7 +46,7 @@ interface Auth
     public function getUser($uid): UserRecord;
 
     /**
-     * @param array<Uid|string> $uids
+     * @param array<\Stringable|string> $uids
      *
      * @throws Exception\FirebaseException
      * @throws Exception\AuthException
@@ -76,7 +76,7 @@ interface Auth
     /**
      * Updates the given user with the given properties.
      *
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param array<string, mixed>|Request\UpdateUser $properties
      *
      * @throws Exception\AuthException
@@ -115,7 +115,7 @@ interface Auth
     public function createAnonymousUser(): UserRecord;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param ClearTextPassword|string $newPassword
      *
      * @throws Exception\AuthException
@@ -124,7 +124,7 @@ interface Auth
     public function changeUserPassword($uid, $newPassword): UserRecord;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param Email|string $newEmail
      *
      * @throws Exception\AuthException
@@ -133,7 +133,7 @@ interface Auth
     public function changeUserEmail($uid, $newEmail): UserRecord;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      *
      * @throws Exception\AuthException
      * @throws Exception\FirebaseException
@@ -141,7 +141,7 @@ interface Auth
     public function enableUser($uid): UserRecord;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      *
      * @throws Exception\AuthException
      * @throws Exception\FirebaseException
@@ -149,7 +149,7 @@ interface Auth
     public function disableUser($uid): UserRecord;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      *
      * @throws UserNotFound
      * @throws Exception\AuthException
@@ -158,7 +158,7 @@ interface Auth
     public function deleteUser($uid): void;
 
     /**
-     * @param iterable<Uid|string> $uids
+     * @param iterable<\Stringable|string> $uids
      * @param bool $forceDeleteEnabledUsers Whether to force deleting accounts that are not in disabled state. If false, only disabled accounts will be deleted, and accounts that are not disabled will be added to the errors.
      *
      * @throws Exception\AuthException
@@ -235,7 +235,7 @@ interface Auth
      *
      * @see https://firebase.google.com/docs/auth/admin/custom-claims
      *
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param array<string, mixed>|null $claims
      *
      * @throws Exception\AuthException
@@ -244,7 +244,7 @@ interface Auth
     public function setCustomUserClaims($uid, ?array $claims): void;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param array<string, mixed> $claims
      */
     public function createCustomToken($uid, array $claims = []): Token;
@@ -356,7 +356,7 @@ interface Auth
      * before revocation will also be revoked on the Auth backend. Any request with an
      * ID token generated before revocation will be rejected with a token expired error.
      *
-     * @param Uid|string $uid the user whose tokens are to be revoked
+     * @param \Stringable|string $uid the user whose tokens are to be revoked
      *
      * @throws Exception\AuthException
      * @throws Exception\FirebaseException
@@ -364,7 +364,7 @@ interface Auth
     public function revokeRefreshTokens($uid): void;
 
     /**
-     * @param Uid|string $uid
+     * @param \Stringable|string $uid
      * @param \Stringable[]|string[]|\Stringable|string $provider
      *
      * @throws Exception\AuthException
@@ -373,7 +373,7 @@ interface Auth
     public function unlinkProvider($uid, $provider): UserRecord;
 
     /**
-     * @param UserRecord|Uid|string $user
+     * @param UserRecord|\Stringable|string $user
      * @param array<string, mixed>|null $claims
      *
      * @throws FailedToSignIn
