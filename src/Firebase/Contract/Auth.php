@@ -27,7 +27,6 @@ use Kreait\Firebase\Exception\Auth\RevokedIdToken;
 use Kreait\Firebase\Exception\Auth\UserDisabled;
 use Kreait\Firebase\Exception\Auth\UserNotFound;
 use Kreait\Firebase\Request;
-use Kreait\Firebase\Value\ClearTextPassword;
 use Lcobucci\JWT\Token;
 use Psr\Http\Message\UriInterface;
 use Traversable;
@@ -84,7 +83,7 @@ interface Auth
 
     /**
      * @param \Stringable|string $email
-     * @param ClearTextPassword|string $password
+     * @param \Stringable|string $password
      *
      * @throws Exception\AuthException
      * @throws Exception\FirebaseException
@@ -114,7 +113,7 @@ interface Auth
 
     /**
      * @param \Stringable|string $uid
-     * @param ClearTextPassword|string $newPassword
+     * @param \Stringable|string $newPassword
      *
      * @throws Exception\AuthException
      * @throws Exception\FirebaseException
@@ -318,7 +317,7 @@ interface Auth
      * @see https://firebase.google.com/docs/reference/rest/auth#section-confirm-reset-password
      *
      * @param string $oobCode the email action code sent to the user's email for resetting the password
-     * @param ClearTextPassword|string $newPassword
+     * @param \Stringable|string $newPassword
      * @param bool $invalidatePreviousSessions Invalidate sessions initialized with the previous credentials
      *
      * @throws ExpiredOobCode
@@ -336,7 +335,7 @@ interface Auth
      * @see https://firebase.google.com/docs/reference/rest/auth#section-confirm-reset-password
      *
      * @param string $oobCode the email action code sent to the user's email for resetting the password
-     * @param ClearTextPassword|string $newPassword
+     * @param \Stringable|string $newPassword
      * @param bool $invalidatePreviousSessions Invalidate sessions initialized with the previous credentials
      *
      * @throws ExpiredOobCode
@@ -392,7 +391,7 @@ interface Auth
 
     /**
      * @param \Stringable|string $email
-     * @param string|ClearTextPassword $clearTextPassword
+     * @param \Stringable|string $clearTextPassword
      *
      * @throws FailedToSignIn
      */
