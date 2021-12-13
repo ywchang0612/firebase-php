@@ -1,5 +1,5 @@
 {
-    "name": "kreait/firebase-php",
+    "name": "ywchang0612/firebase-php",
     "description": "Firebase Admin SDK",
     "keywords": ["firebase", "google", "sdk", "api", "database"],
     "homepage": "https://github.com/kreait/firebase-php",
@@ -45,6 +45,9 @@
         "phpstan/phpstan-phpunit": "^0.12.6",
         "phpunit/phpunit": "^8.5",
         "symfony/var-dumper": "^5.0"
+    },
+    "replace": {
+        "kreait/firebase-php": "5.9.0"
     },
     "suggest": {
         "google/cloud-firestore": "^1.0 to use the Firestore component"
